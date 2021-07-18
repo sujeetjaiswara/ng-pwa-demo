@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CCComponent } from '../cc/cc.component';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
-  ngOnInit(): void {
+  attribution(e: Event) {
+    this.dialog.open(CCComponent, {
+      autoFocus: false
+    });
   }
-
 }
