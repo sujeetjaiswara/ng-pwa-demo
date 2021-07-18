@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } f
 })
 export class NavComponent {
   deferredPrompt: any;
-  installButton = true;
+  installButton = false;
 
   constructor(private cd: ChangeDetectorRef) { }
 
