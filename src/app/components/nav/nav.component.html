@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" style="height: 54px;">
+
+    <span>PWA Demo</span>
+
+    <span class="example-spacer"></span>
+
+    <button *ngIf="installButton" (click)="addToHomeScreen()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with share icon">
+        <mat-icon>Install</mat-icon>
+    </button>
+
+</mat-toolbar>
