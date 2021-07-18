@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -6,52 +6,33 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, HostListener, On
   styleUrls: ['./nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavComponent implements OnInit {
+export class NavComponent {
   deferredPrompt: any;
-  installButton = false;
+  installButton = true;
 
-  constructor(private cd: ChangeDetectorRef) {
-
-  }
-
-  ngOnInit(): void {
-
-  }
+  constructor(private cd: ChangeDetectorRef) { }
 
   @HostListener('window:beforeinstallprompt', ['$event'])
   onbeforeinstallprompt(event: any) {
-    console.log('👍', 'beforeinstallprompt (default layout component)', event);
-
-    // Stash the event so it can be triggered later.
+    console.log('👍', 'beforeinstallprompt', event);
     this.deferredPrompt = event;
-
-    // Show our user interface that shows our A2HS button
     this.installButton = true;
     this.cd.detectChanges();
   }
 
-  /* AW - Add to home screen (A2HS) */
-  async addToHomeScreen() {
-    console.log('👍', 'butInstall-clicked');
-
+  /* Add to home screen (A2HS) */
+  async onInstall() {
     const promptEvent = this.deferredPrompt;
     if (!promptEvent) {
-      // The deferred prompt isn't available.
       return;
     }
 
-    // Show the install prompt.
     promptEvent.prompt();
 
-    // Log the result
     const result = await promptEvent.userChoice;
     console.log('👍', 'userChoice', result);
 
-    // Reset the deferred prompt variable, since
-    // prompt() can only be called once.
     this.deferredPrompt = null;
-
-    // Hide the install button.
     this.installButton = false;
     this.cd.detectChanges();
   }
@@ -59,7 +40,6 @@ export class NavComponent implements OnInit {
   @HostListener('window:appinstalled', ['$event'])
   onappinstalled(event: any) {
     console.log('👍', 'appinstalled', event);
-    // Clear the deferredPrompt so it can be garbage collected
     this.deferredPrompt = null;
   }
 }

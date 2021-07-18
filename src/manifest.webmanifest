@@ -1,8 +1,8 @@
 {
-  "name": "ng-pwa-demo",
-  "short_name": "ng-pwa-demo",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "name": "NG PWA",
+  "short_name": "NG PWA",
+  "theme_color": "#f44336",
+  "background_color": "#fff",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
