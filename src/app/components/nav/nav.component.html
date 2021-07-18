@@ -1,11 +1,10 @@
-<mat-toolbar color="primary" style="height: 54px;">
-
-    <span>Angular PWA Demo</span>
-
-    <span class="example-spacer"></span>
-
-    <button *ngIf="installButton" (click)="onInstall()" mat-icon-button>
-        <mat-icon>download</mat-icon> Install
-    </button>
-
+<mat-toolbar color="primary" style="height: 54px;" class="is-flex-direction-row is-justify-content-space-between">
+    <div>
+        <span>Angular PWA Demo</span>
+    </div>
+    <div>
+        <button mat-stroked-button *ngIf="installButton" (click)="onInstall()">
+            <mat-icon>download</mat-icon> Install
+        </button>
+    </div>
 </mat-toolbar>

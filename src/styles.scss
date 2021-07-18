@@ -3,8 +3,8 @@
 @include mat-core();
 
 $ng-pwa-demo-primary: mat-palette($mat-red);
-$ng-pwa-demo-accent: mat-palette($mat-pink, A200, A100, A400);
-$ng-pwa-demo-warn: mat-palette($mat-red);
+$ng-pwa-demo-accent: mat-palette($mat-red, 900);
+$ng-pwa-demo-warn: mat-palette($mat-orange);
 $ng-pwa-demo-theme: mat-light-theme((
   color: (
     primary: $ng-pwa-demo-primary,
@@ -15,5 +15,14 @@ $ng-pwa-demo-theme: mat-light-theme((
 
 @include angular-material-theme($ng-pwa-demo-theme);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css";

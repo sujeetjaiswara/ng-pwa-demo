@@ -1,7 +1,9 @@
 <app-nav></app-nav>
 
-<div class="example-button-container">
-    <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-        <mat-icon>menu</mat-icon>
-    </button>
+<div class="container is-max-desktop">
+    <mat-grid-list cols="7" rowHeight="1:1" gutterSize="12" class="pt-3">
+        <mat-grid-tile *ngFor="let image of images">
+            <img [src]="image.url" loading="lazy" alt="" class="gallery">
+        </mat-grid-tile>
+    </mat-grid-list>
 </div>
